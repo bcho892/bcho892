@@ -1,4 +1,8 @@
-### Hi there 👋
+# Welcome Everyone
+
+### Within my profile you will find projects that I feel reflect my interests. 
+
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=bcho892&count_private=true&show_icons=true&theme=react&hide_border=true)  
 
 <!--
 **bcho892/bcho892** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
