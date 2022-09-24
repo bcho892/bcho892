@@ -2,8 +2,7 @@
 
 ### Within my profile you will find projects that I feel reflect my interests. 
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=bcho892&count_private=true&show_icons=true&theme=react&hide_border=true)  
-
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=bcho892&theme=nightowl" alt="my stats"/>
 <!--
 **bcho892/bcho892** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
