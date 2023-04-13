@@ -1,13 +1,10 @@
 local Plug = vim.fn['plug#']
 
-vim.cmd[[set number]]
-vim.cmd[[set noshowmode]]
 vim.call('plug#begin','C:\\Users\\AKLbc\\AppData\\Local\\nvim\\autoload\\plugged')
 Plug('https://github.com/scrooloose/nerdtree')
 Plug('https://github.com/jiangmiao/auto-pairs')
 Plug('https://github.com/neovim/nvim-lspconfig')
 Plug('romgrk/barbar.nvim')
-Plug('https://github.com/VHDL-LS/rust_hdl')
 Plug('lambdalisue/fern.vim')
 Plug('lambdalisue/fern-renderer-nerdfont.vim')
 Plug('iamcco/markdown-preview.nvim')
@@ -16,12 +13,12 @@ Plug('lukas-reineke/indent-blankline.nvim')
 Plug('neovim/nvim-lspconfig')
 Plug('echasnovski/mini.nvim', { branch = 'stable' })
 Plug('lambdalisue/fern.vim')
-Plug('hrsh7th/cmp-nvim-lsp')
 Plug('hrsh7th/cmp-buffer')
 Plug('hrsh7th/cmp-path')
 Plug('hrsh7th/cmp-cmdline')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-vsnip')
+Plug('neoclide/coc.nvim', {branch = 'release'})
 Plug('ahmedkhalf/project.nvim')
 Plug('hrsh7th/vim-vsnip')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})
@@ -48,13 +45,11 @@ require("scrollbar").setup()
 local cmp = require'cmp'
 local builtin = require('telescope.builtin')
 vim.g['fern#renderer'] = "nerdfont"
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 require("tokyonight").setup({
 	dim_inactive = true,
 	lualine_bold = true,
 	use_background = false,
 })
-vim.cmd[[colorscheme tokyonight]]
 require('lualine').setup {
   options = {
     theme = 'tokyonight'
@@ -120,15 +115,19 @@ sources = cmp.config.sources({
   { name = 'cmdline' }
 })
 })
-
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
 lspconfig.eslint.setup {}
 lspconfig.html.setup {}
+lspconfig.cssls.setup {
+	capabilities = capabilities,
+}
 lspconfig.marksman.setup {}
-lspconfig.vhdl_ls.setup {}
-lspconfig.jedi_language_server.setup{}
-vim.opt.clipboard:prepend {'unnamed',  'unnamedplus'}
+vim.opt.clipboard:prepend {'unnamed',  'unnamedplus'i}
 -- vim commands
 vim.cmd[[set tabstop=4 shiftwidth=4]]
-
+vim.cmd[[set number]]
+vim.cmd[[set noshowmode]]
+vim.cmd[[colorscheme tokyonight]]
+-- keybindings
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
