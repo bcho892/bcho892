@@ -27,6 +27,11 @@ vim.call('plug#end')
 require('mini.move').setup()
 --
 require 'nvim-treesitter.install'.compilers = { 'zig' }
+require 'nvim-treesitter.configs'.setup {
+	highlight ={
+		enable = true,
+	},
+}
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
     show_current_context = true,
@@ -46,7 +51,6 @@ require('lualine').setup {
   }
 }
 vim.o.background = "light"
-vim.cmd[[map <C-c> "+y]]
 require("project_nvim").setup {}
 require('telescope').load_extension('projects')
 require('git').setup()
@@ -58,6 +62,8 @@ vim.cmd[[set wildmode=longest:full,full]]
 vim.cmd[[set tabstop=4 shiftwidth=4]]
 vim.cmd[[set number]]
 vim.cmd[[set noshowmode]]
+vim.cmd[[map <C-c> "+y]]
+vim.cmd[[nmap <C-b> :Fern . -drawer <CR>]]
 vim.cmd[[colorscheme tokyonight]]
 -- keybindings
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
