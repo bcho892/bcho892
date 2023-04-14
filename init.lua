@@ -3,14 +3,12 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin','C:\\Users\\AKLbc\\AppData\\Local\\nvim\\autoload\\plugged')
 Plug('https://github.com/scrooloose/nerdtree')
 Plug('https://github.com/jiangmiao/auto-pairs')
-Plug('https://github.com/neovim/nvim-lspconfig')
 Plug('romgrk/barbar.nvim')
 Plug('lambdalisue/fern.vim')
 Plug('lambdalisue/fern-renderer-nerdfont.vim')
 Plug('iamcco/markdown-preview.nvim')
 Plug('folke/tokyonight.nvim', { branch = 'main' })
 Plug('lukas-reineke/indent-blankline.nvim')
-Plug('neovim/nvim-lspconfig')
 Plug('echasnovski/mini.nvim', { branch = 'stable' })
 Plug('lambdalisue/fern.vim')
 Plug('neoclide/coc.nvim', {branch = 'release'})
@@ -20,7 +18,6 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = vim.fn[':TSUpdate']})
 Plug('nvim-lua/plenary.nvim')
 Plug('nvim-telescope/telescope.nvim', { tag = '0.1.1' })
 Plug('dinhhuy258/git.nvim')
-Plug('williamboman/nvim-lsp-installer')
 Plug('nvim-lualine/lualine.nvim')
 Plug('nvim-tree/nvim-web-devicons')
 Plug('lambdalisue/nerdfont.vim')
@@ -35,7 +32,6 @@ require("indent_blankline").setup {
     show_current_context = true,
     show_current_context_start = true,
 }
-require("nvim-lsp-installer").setup {}
 require("scrollbar").setup()
 local builtin = require('telescope.builtin')
 vim.g['fern#renderer'] = "nerdfont"
@@ -54,14 +50,6 @@ vim.cmd[[map <C-c> "+y]]
 require("project_nvim").setup {}
 require('telescope').load_extension('projects')
 require('git').setup()
-local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
-lspconfig.eslint.setup {}
-lspconfig.html.setup {}
-lspconfig.cssls.setup {
-	capabilities = capabilities,
-}
-lspconfig.marksman.setup {}
 vim.opt.clipboard:prepend {'unnamed',  'unnamedplus'}
 -- vim commands
 vim.cmd[[inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]]
